@@ -5,11 +5,7 @@ import com.example.shoppinglist.utils.await
 import com.google.firebase.firestore.CollectionReference
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.channelFlow
-import kotlinx.coroutines.launch
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -47,7 +43,7 @@ class ShoppingRemoteDataSource @Inject constructor(
             mapOf(
 
                 "name" to shoppingItem.name,
-                "amount" to shoppingItem.amount
+                "amount" to shoppingItem.address
             )
         ).await()
         return true

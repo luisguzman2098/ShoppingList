@@ -9,7 +9,7 @@ import com.example.shoppinglist.data.datasource.local.entities.ShoppingEntity
 
 @Database(
     entities = [ShoppingEntity::class],
-    version = 1
+    version = 2
 )
 abstract class ShoppingDatabase: RoomDatabase() {
 
@@ -27,6 +27,8 @@ abstract class ShoppingDatabase: RoomDatabase() {
 
         private fun createDatabase(context: Context) =
             Room.databaseBuilder(context.applicationContext,
-                ShoppingDatabase::class.java, "ShoppingDB.db").build()
+                ShoppingDatabase::class.java, "ShoppingDB.db")
+                .fallbackToDestructiveMigration()
+                .build()
     }
 }

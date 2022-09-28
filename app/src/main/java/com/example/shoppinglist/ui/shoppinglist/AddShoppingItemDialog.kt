@@ -6,7 +6,6 @@ import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
 import com.example.shoppinglist.R
-import com.example.shoppinglist.data.datasource.local.entities.ShoppingEntity
 import com.example.shoppinglist.data.datasource.local.models.ShoppingModel
 import kotlinx.android.synthetic.main.dialog_add_shopping_item.*
 
@@ -21,14 +20,14 @@ class AddShoppingItemDialog(context: Context, var addDialogListener: AddDialogLi
         tvAdd.setOnClickListener {
 
             val name = etName.text.toString()
-            val amount = etAmount.text.toString().toInt()
+            val address = etAmount.text.toString()
 
             if(name.isEmpty()) {
                 Toast.makeText(context, "Please enter a name", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val item = ShoppingModel(name = name, amount = amount)
+            val item = ShoppingModel(name = name, address = address)
             addDialogListener.onAddButtonClicked(item)
             dismiss()
         }

@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var shoppingFactory: ShoppingViewModelFactory
-
     lateinit var viewModel: ShoppingViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {

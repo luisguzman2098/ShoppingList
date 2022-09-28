@@ -6,7 +6,7 @@ import java.util.*
 data class ShoppingModel(
     val id: String = UUID.randomUUID().toString(),
     val name: String = "",
-    var amount: Int = 0
+    var address: String = ""
 )
 
-fun ShoppingModel.toEntity() = ShoppingEntity(id, name, amount)
+fun ShoppingModel.toEntity() = ShoppingEntity(id, name, address)

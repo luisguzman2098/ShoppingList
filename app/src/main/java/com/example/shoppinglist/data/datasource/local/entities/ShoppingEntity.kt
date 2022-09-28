@@ -10,12 +10,12 @@ data class ShoppingEntity(
     var id: String,
     @ColumnInfo(name = "item_name")
     var name: String,
-    @ColumnInfo(name = "item_amount")
-    var amount: Int,
+    @ColumnInfo(name = "item_address")
+    var address: String,
 
     )
 fun ShoppingEntity.toModel() = ShoppingModel(
     id = id,
     name = name,
-    amount = amount
+    address = address
 )

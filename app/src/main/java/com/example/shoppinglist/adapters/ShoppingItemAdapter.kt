@@ -5,9 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppinglist.R
-import com.example.shoppinglist.data.datasource.local.entities.ShoppingEntity
 import com.example.shoppinglist.data.datasource.local.models.ShoppingModel
-import com.example.shoppinglist.ui.shoppinglist.ShoppingViewModel
 import kotlinx.android.synthetic.main.shopping_item.view.*
 
 typealias OnItemChanged = (ShoppingModel) -> Unit
@@ -32,23 +30,12 @@ class ShoppingItemAdapter() : RecyclerView.Adapter<ShoppingItemAdapter.ShoppingV
         val curShoppingItem = shoppingList[position]
 
         holder.itemView.tvName.text = curShoppingItem.name
-        holder.itemView.tvAmount.text = "${curShoppingItem.amount}"
+        holder.itemView.tvAmount.text = "${curShoppingItem.address}"
 
         holder.itemView.ivDelete.setOnClickListener {
             onItemDeleted?.invoke(curShoppingItem)
         }
 
-        holder.itemView.ivPlus.setOnClickListener {
-            curShoppingItem.amount++
-            onItemChanged?.invoke(curShoppingItem)
-        }
-
-        holder.itemView.ivMinus.setOnClickListener {
-            if (curShoppingItem.amount > 0) {
-                curShoppingItem.amount--
-                onItemChanged?.invoke(curShoppingItem)
-            }
-        }
     }
 
     fun setOnItemChanged(onItemChanged: OnItemChanged) {
